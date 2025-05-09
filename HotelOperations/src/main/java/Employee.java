@@ -42,11 +42,11 @@ public class Employee {
     }
 
     public double getRegularHours() {
-        return Math.min(hoursWorked, 40);
+        return Math.min(hoursWorked, 40); // Derived from hourWorked
     }
 
     public double getOvertimeHours() {
-        return Math.max(0, hoursWorked - 40);
+        return Math.max(0, hoursWorked - 40); // Also derived from hoursWorked
     }
 
     public double getTotalPay() {

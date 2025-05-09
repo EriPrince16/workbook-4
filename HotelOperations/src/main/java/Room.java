@@ -4,6 +4,13 @@ public class Room {
     boolean occupied;
     boolean dirty;
 
+    public Room(int numberOfBeds, double price, boolean occupied, boolean dirty) {
+        this.numberOfBeds = numberOfBeds;
+        this.price = price;
+        this.occupied = occupied;
+        this.dirty = dirty;
+    }
+
     public int getNumberOfBeds() {
         return numberOfBeds;
     }
@@ -21,7 +28,6 @@ public class Room {
     }
 
     public boolean isAvailable() {
-
         return !isDirty() && !isOccupied();
     }
 
@@ -47,13 +53,21 @@ public class Room {
     }
 
     public void cleanRoom() {
-        if (dirty) {
+        if (!occupied && dirty) {
             dirty = false;
             System.out.println("Room has been cleaned.");
+        } else if (occupied) {
+            System.out.println("Cannot clean room while occupied.");
         } else {
             System.out.println("Room is already clean.");
         }
     }
 
-
+    public boolean canClean() {
+        if (isDirty() && !isOccupied()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

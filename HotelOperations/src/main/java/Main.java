@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    static Room room = new Room(); // single shared room instance
+    static Room room = new Room(2, 100.00, false, false); // single shared room instance
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
